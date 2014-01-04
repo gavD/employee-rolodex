@@ -32,21 +32,7 @@ if ($locales = Environment::get('locales')) {
 	Router::connect($template, array(), array('continue' => true));
 }
 
-/**
- * Here, we are connecting `'/'` (the base path) to controller called `'Pages'`,
- * its action called `view()`, and we pass a param to select the view file
- * to use (in this case, `/views/pages/home.html.php`; see `app\controllers\PagesController`
- * for details).
- *
- * @see app\controllers\PagesController
- */
-Router::connect('/', 'Pages::view');
-
-/**
- * Connect the rest of `PagesController`'s URLs. This will route URLs like `/pages/about` to
- * `PagesController`, rendering `/views/pages/about.html.php` as a static page.
- */
-Router::connect('/pages/{:args}', 'Pages::view');
+Router::connect('/', 'Home::index');
 
 /**
  * Add the testing routes. These routes are only connected in non-production environments, and allow
@@ -94,4 +80,13 @@ if (!Environment::is('production')) {
  */
 Router::connect('/{:controller}/{:action}/{:args}');
 
+if (!Environment::is(array('test'))) {
+	lithium\analysis\Logger::config(array(
+		'default' => array('adapter' => 'Syslog'),
+		'problems' => array(
+			'adapter' => 'File',
+			'priority' => array('emergency', 'alert', 'critical', 'error')
+		)
+	));
+}
 ?>
