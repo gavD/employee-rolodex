@@ -79,14 +79,4 @@ if (!Environment::is('production')) {
  * a top-down fashion.
  */
 Router::connect('/{:controller}/{:action}/{:args}');
-
-if (!Environment::is(array('test'))) {
-	lithium\analysis\Logger::config(array(
-		'default' => array('adapter' => 'Syslog'),
-		'problems' => array(
-			'adapter' => 'File',
-			'priority' => array('emergency', 'alert', 'critical', 'error')
-		)
-	));
-}
 ?>

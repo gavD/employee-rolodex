@@ -1,3 +1,9 @@
 [submodule "libraries/lithium"]
 	path = libraries/lithium
 	url = git://github.com/UnionOfRAD/lithium.git
+[submodule "app/libraries/li3_flash_message"]
+	path = app/libraries/li3_flash_message
+	url = https://github.com/michaelhue/li3_flash_message.git
+[submodule "libraries/li3_flash_message"]
+	path = libraries/li3_flash_message
+	url = https://github.com/michaelhue/li3_flash_message.git

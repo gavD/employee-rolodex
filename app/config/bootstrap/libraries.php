@@ -124,4 +124,5 @@ Libraries::add('app', array('default' => true));
 
 Libraries::add('li3_quality');
 Libraries::add('li3_fixtures');
+Libraries::add('li3_flash_message');
 ?>
