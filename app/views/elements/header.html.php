@@ -22,13 +22,17 @@
                 <ul class="nav nav-pills pull-right">
                     <li><a href="<?= $this->url(array('Home::index')); ?>">Homepage</a></li>
                     <li><a href="<?= $this->url(array('Employees::index')); ?>">Employees</a></li>
-                    <li><a href="<?= $this->url(array('Administrators::login')); ?>">Admin log in</a></li>
-                    <li><a href="<?= $this->url(array('Administrators::logout')); ?>">Log out</a></li>
+                    <?=$this->loginLogoutControl->link(
+                        $this->url(array('Administrators::login')),
+                        $this->url(array('Administrators::logout'))
+                    ) ?>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container">
+        <?= $this->flashMessage->show() ?>
+        
         <h1>Rolodex</h1>
         <hr>
 

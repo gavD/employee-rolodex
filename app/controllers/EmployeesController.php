@@ -54,5 +54,21 @@ class EmployeesController extends \lithium\action\Controller {
 		Employees::find($this->request->id)->delete();
 		return $this->redirect('Employees::index');
 	}
+    
+    public function donk() {
+        $employees = Employees::findAllByDepartment('donk');
+
+        return $this->render(array(
+            'template' => 'index',
+            'data' => array(
+                'employees' => $employees
+            )
+        ));
+    }
+    
+    public function sackall() {
+        Employees::remove();
+        return $this->redirect('Employees::index');
+    }
 }
 ?>
